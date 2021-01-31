@@ -1,12 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Category } from "../pages/client/category";
 import { Header } from "../components/header";
 import { useMe } from "../hooks/useMe";
 import { NotFound } from "../pages/404";
 import { Restaurants } from "../pages/client/restaurants";
+import { Search } from "../pages/client/search";
 import { ConfirmEmail } from "../pages/user/confirm-email";
 import { EditProfile } from "../pages/user/edit-profile";
 import { UserRole } from "../__generated__/globalTypes";
+import { Restaurant } from "../pages/client/restaurant";
 
 const ClientRoutes = [
   <Route key="restaurants" path="/" exact>
@@ -17,6 +20,15 @@ const ClientRoutes = [
   </Route>,
   <Route key="edit-profile" path="/edit-profile" exact>
     <EditProfile />
+  </Route>,
+  <Route key="search" path="/search" exact>
+    <Search />
+  </Route>,
+  <Route key="category" path="/category/:slug" exact>
+    <Category />
+  </Route>,
+  <Route key="restaurant" path="/restaurant/:id" exact>
+    <Restaurant />
   </Route>,
 ];
 
@@ -30,6 +42,7 @@ export const LoggedInRouter = () => {
       </div>
     );
   }
+
   return (
     <Router>
       <Header />
