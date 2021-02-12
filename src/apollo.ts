@@ -1,5 +1,6 @@
 import {
   ApolloClient,
+  ApolloLink,
   createHttpLink,
   InMemoryCache,
   makeVar,
@@ -25,7 +26,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 export const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  link: ApolloLink.from([authLink, httpLink]),
   cache: new InMemoryCache({
     typePolicies: {
       Query: {
