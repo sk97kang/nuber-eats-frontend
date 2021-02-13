@@ -3,7 +3,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { Dish } from "../../components/dish";
 import {
-  DISH_FRAGMENTS,
+  DISH_FRAGMENT,
   ORDERS_FRAGMENT,
   RESTAURANT_FRAGMENT,
 } from "../../fragments";
@@ -37,7 +37,7 @@ export const MY_RESTAURANT_QUERY = gql`
     }
   }
   ${RESTAURANT_FRAGMENT}
-  ${DISH_FRAGMENTS}
+  ${DISH_FRAGMENT}
   ${ORDERS_FRAGMENT}
 `;
 

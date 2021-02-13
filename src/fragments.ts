@@ -23,7 +23,7 @@ export const CATEGORY_FRAGMENTS = gql`
   }
 `;
 
-export const DISH_FRAGMENTS = gql`
+export const DISH_FRAGMENT = gql`
   fragment DishParts on Dish {
     id
     name
