@@ -129,7 +129,7 @@ export const Restaurant = () => {
   const onCompleted = (data: createOrder) => {
     const { ok, orderId } = data.createOrder;
     if (ok) {
-      history.push(`/orders/${orderId}`);
+      history.push(`/order/${orderId}`);
     }
   };
   const [createOrderMutation, { loading: placingOrder }] = useMutation<
@@ -140,16 +140,15 @@ export const Restaurant = () => {
   });
 
   const triggerConfirmOrder = () => {
+    if (placingOrder) {
+      return;
+    }
     if (orderItems.length === 0) {
       alert("Can't place empty order");
       return;
     }
-    if (placingOrder) {
-      return;
-    }
     const ok = window.confirm("You are about to place an order");
     if (ok) {
-      console.log(orderItems);
       createOrderMutation({
         variables: { input: { restaurantId: +params.id, items: orderItems } },
       });
