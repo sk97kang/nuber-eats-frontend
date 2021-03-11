@@ -19,6 +19,7 @@
     "@types/react-router-dom": "^5.1.7",
     "apollo": "^2.32.1",
     "autoprefixer": "^10.2.1",
+    "cypress": "^6.6.0",
     "google-map-react": "^2.1.9",
     "graphql": "^15.4.0",
     "postcss": "^8.2.4",
@@ -71,6 +72,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/cypress": "^7.0.4",
     "@types/google-map-react": "^2.1.0",
     "@types/googlemaps": "^3.43.3",
     "mock-apollo-client": "^1.0.0"
